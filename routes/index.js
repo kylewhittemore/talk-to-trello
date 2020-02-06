@@ -3,14 +3,14 @@ const Axios = require('axios');
 
 const baseUrl = 'https://api.trello.com/1/'
 
-router.post('/card', (req, res) => {
-    cardName = req.body.cardName;
-    cardDescription = req.body.cardDescription
+router.post('/api/card', (req, res) => {
+    name = req.body.name;
+    description = req.body.description
 
-    console.log('Request cardName: ', cardName);
-    console.log('Request cardDescription', cardDescription)
+    console.log('Request name: ', name);
+    console.log('Request description', description)
     
-    const queryUrl = `${baseUrl}cards?name=${cardName}&desc=${cardDescription}&pos=top&idList=5e33039423688f1f1ec37cce&keepFromSource=all&key=${process.env.API_KEY}&token=${process.env.TOKEN}`
+    const queryUrl = `${baseUrl}cards?name=${name}&desc=${description}&pos=top&idList=5e33039423688f1f1ec37cce&keepFromSource=all&key=${process.env.API_KEY}&token=${process.env.TOKEN}`
 
     Axios.post(queryUrl)
     .then(response => {

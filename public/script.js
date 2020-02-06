@@ -28,7 +28,7 @@ btn.onclick = () => {
 recognition.onresult = function (event) {
 
   var last = event.results.length - 1;
-  var input = event.results[last][0].transcript;
+  var input = event.results[last][0].transcript.toLowerCase().trim();
   console.log(event.results)
   diagnostic.textContent = 'Result received: ' + input + '.';
   console.log('Confidence: ' + event.results[0][0].confidence);
@@ -39,6 +39,7 @@ recognition.onresult = function (event) {
     console.log('ready to receive input');
     messages.textContent = 'ready to receive input';
     console.log(`card name: ${card.name}, card description: ${card.description}`)
+    axios.post('/api/card', card).then(result => console.log(result))
   }
 
   if (listeningForName) {
@@ -49,7 +50,7 @@ recognition.onresult = function (event) {
     messages.textContent = 'what is the description of the card?'
   }
 
-  if (input.toLowerCase().trim() === 'new trello card' && !listeningForDescription && !listeningForName) {
+  if (input === 'new trello card' && !listeningForDescription && !listeningForName) {
     console.log('ready for new card input.')
     messages.textContent = 'what is the name of the card?'
     listeningForName = true;
