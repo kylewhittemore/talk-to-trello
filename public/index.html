@@ -1,20 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <h1>webspeech prototype</h1>
     <h3 id="messages"></h3>
     <span id="output"></span>
     <button id="btn">Click me</button>
-    
+    <br />
+    <P>click the button to start the application listening</P>
+    <p>everytime you pause in your speech, the application will render the speech to text</p>
+    <p>if you say "new trello card" as a single result (as in, freshly after a result is rendered) it will start
+    listening for a card name.</p>
+    <p>Once you pause again, it will render the card name and start listening for the card description.</P>
+    <p>Once the description has been captured, the app will post it to a trello board as a new card!</p>
+    <p>PS, check out the console for updates on what is happening with the app and for the response data.</p>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/script.js"></script>
 
 </body>
+
 </html>
