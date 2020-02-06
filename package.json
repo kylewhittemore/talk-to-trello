@@ -1,0 +1,27 @@
+{
+  "name": "talk-to-trello",
+  "version": "1.0.0",
+  "description": "A web application that allows a user to dictate a card directly to a Trello board",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kylewhittemore/talk-to-trello.git"
+  },
+  "author": "Kyle Whittemore",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kylewhittemore/talk-to-trello/issues"
+  },
+  "homepage": "https://github.com/kylewhittemore/talk-to-trello#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2"
+  }
+}
