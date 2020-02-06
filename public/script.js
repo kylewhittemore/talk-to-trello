@@ -13,11 +13,17 @@ recognition.lang = 'en-US';
 recognition.interimResults = false;
 recognition.maxAlternatives = 1;
 
-var diagnostic = document.querySelector('.output');
+var diagnostic = document.querySelector('#output');
 
-document.body.onclick = function() {
+// document.body.onclick = function() {
+//   // recognition.start();
+//   console.log('Ready to receive input.');
+// }
+
+const btn = document.querySelector('button')
+btn.onclick = () => {
+  console.log('ready to receive input');
   recognition.start();
-  console.log('Ready to receive input.');
 }
 
 recognition.onresult = function(event) {
