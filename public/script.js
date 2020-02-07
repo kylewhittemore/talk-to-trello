@@ -19,7 +19,7 @@ recognition.maxAlternatives = 1;
 var diagnostic = document.querySelector('#output');
 const messages = document.querySelector('#messages');
 
-const btn = document.querySelector('button')
+const btn = document.querySelector('#btn')
 btn.onclick = () => {
   console.log('ready to receive input');
   recognition.start();
