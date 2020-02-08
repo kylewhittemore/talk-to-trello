@@ -6,6 +6,7 @@ var grammar = '#JSGF V1.0;'
 let listeningForName = false;
 let listeningForDescription = false;
 const card = { name: '', description: '' }
+let list;
 
 var recognition = new SpeechRecognition();
 var speechRecognitionList = new SpeechGrammarList();
@@ -33,13 +34,14 @@ getBoards.onclick = () => {
   axios.get(`/api/users/boards/${token}`)
     .then(result => {
       console.log(result)
-      result.data.forEach(board => {
-        console.log(board.name)
-        var node = document.createElement("LI");                 // Create a <li> node
-        var textnode = document.createTextNode(board.name);         // Create a text node
-        node.appendChild(textnode);                              // Append the text to <li>
-        boardList.appendChild(node);
-      })
+      axios.get(`/api/boards/lists/${result.data[0].id}/${token}`).then(result => console.log(result.data))
+      // result.data.forEach(board => {
+      //   console.log(board.name)
+      //   var node = document.createElement("LI");                
+      //   var textnode = document.createTextNode(board.name);
+      //   node.appendChild(textnode);                              
+      //   boardList.appendChild(node);
+      // })
     })
     .catch(error => console.log(error))
 }
